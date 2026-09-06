@@ -1,283 +1,253 @@
 ```html
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ODLICZANIE DO 21:37</title>
+    <title>!!! 2137 LICZNIK !!!</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-        }
-
         body {
-            background: #050505;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            overflow: hidden;
-
-            transition:
-                background 1s ease,
-                filter 1s ease;
+            margin: 0;
+            background: #000080;
+            color: #00ff00;
+            font-family: "Times New Roman", serif;
+            text-align: center;
         }
 
-        .container {
-            width: 100%;
-            text-align: center;
+        .top {
+            background: linear-gradient(#ff0000, #800000);
+            border: 5px outset #ffff00;
+            padding: 10px;
+            color: yellow;
+            font-size: 42px;
+            font-weight: bold;
+            text-shadow: 4px 4px #000000;
+        }
+
+        .main {
+            width: 850px;
+            max-width: 95%;
+            margin: 30px auto;
+            background: #000000;
+            border: 8px ridge #00ffff;
             padding: 20px;
         }
 
-        /* =========================
-           NORMALNY LICZNIK
-           ========================= */
+        .warning {
+            color: #ff00ff;
+            font-size: 24px;
+            font-weight: bold;
+        }
 
         #countdown {
-            font-size: clamp(55px, 11vw, 150px);
+            margin: 30px 0;
+            padding: 25px;
 
-            font-weight: 900;
+            background: linear-gradient(
+                135deg,
+                #000000,
+                #0000ff,
+                #000000
+            );
 
-            letter-spacing: 4px;
+            border: 10px groove #ffff00;
 
             color: #ffffff;
 
-            text-shadow:
-                0 0 8px #00ffff,
-                0 0 20px #00ffff,
-                0 0 40px #00ffff,
-                0 0 80px #0088ff;
+            font-family: "Courier New", monospace;
+            font-size: 75px;
+            font-weight: bold;
 
-            user-select: none;
+            text-shadow:
+                3px 3px #ff0000,
+                -3px -3px #00ffff;
+
+            box-shadow:
+                0 0 20px #00ffff,
+                inset 0 0 20px #ff00ff;
         }
 
         #label {
-            margin-top: 25px;
-
-            font-size: clamp(18px, 3vw, 30px);
-
-            color: #00ffff;
-
-            letter-spacing: 5px;
-
-            text-shadow:
-                0 0 10px #00ffff,
-                0 0 25px #00ffff;
+            color: #ffff00;
+            font-size: 30px;
+            font-weight: bold;
         }
-
-        /* =========================
-           EKRAN 21:37
-           ========================= */
 
         #celebration {
             display: none;
         }
 
         #celebration h1 {
-            margin: 0;
-
-            font-size: clamp(45px, 9vw, 140px);
-
-            font-weight: 1000;
-
-            line-height: 1.05;
-
-            color: white;
-
-            text-transform: uppercase;
-
+            color: #ffff00;
+            font-size: 70px;
             text-shadow:
-                0 0 5px white,
-                0 0 10px #00ffff,
-                0 0 25px #00ffff,
-                0 0 50px #00ffff,
-                0 0 100px #0088ff;
+                5px 5px #ff0000,
+                -5px -5px #0000ff;
 
-            animation:
-                neonPulse 0.8s infinite alternate,
-                textPulse 1.2s infinite;
+            animation: chaos 0.3s infinite alternate;
         }
 
         #celebration p {
-            margin-top: 35px;
-
-            font-size: clamp(20px, 4vw, 45px);
-
             color: #00ffff;
-
-            text-shadow:
-                0 0 10px #00ffff,
-                0 0 30px #00ffff,
-                0 0 60px #0088ff;
-
-            animation: fadePulse 1s infinite alternate;
+            font-size: 35px;
+            font-weight: bold;
         }
 
-        /* =========================
-           ANIMACJE
-           ========================= */
+        .box {
+            margin-top: 30px;
+            padding: 15px;
 
-        @keyframes neonPulse {
+            background: #222222;
 
-            from {
-                filter: brightness(0.8);
-                text-shadow:
-                    0 0 5px white,
-                    0 0 10px #00ffff,
-                    0 0 25px #00ffff,
-                    0 0 50px #0088ff;
-            }
+            border: 5px outset #ffffff;
 
-            to {
-                filter: brightness(1.6);
-                text-shadow:
-                    0 0 10px white,
-                    0 0 20px #00ffff,
-                    0 0 45px #00ffff,
-                    0 0 90px #0088ff,
-                    0 0 150px #0088ff;
-            }
+            color: #ffffff;
+            font-size: 20px;
         }
 
-        @keyframes textPulse {
+        .footer {
+            margin-top: 30px;
 
-            0%, 100% {
-                transform: scale(1);
-            }
+            background: #800080;
+            border: 4px inset #ffff00;
 
+            padding: 10px;
+
+            color: #ffff00;
+            font-size: 18px;
+        }
+
+        .blink {
+            animation: blink 0.5s infinite;
+        }
+
+        @keyframes blink {
             50% {
-                transform: scale(1.04);
-            }
-        }
-
-        @keyframes fadePulse {
-
-            from {
-                opacity: 0.5;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* =========================
-           TRYB 21:37
-           ========================= */
-
-        body.celebration-mode {
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    #102d45 0%,
-                    #07121c 35%,
-                    #020202 75%
-                );
-
-            animation: backgroundPulse 2s infinite alternate;
-        }
-
-        @keyframes backgroundPulse {
-
-            from {
-                filter: brightness(0.8);
-            }
-
-            to {
-                filter: brightness(1.3);
-            }
-        }
-
-        /* =========================
-           GWIAZDKI / EFEKTY
-           ========================= */
-
-        .particle {
-
-            position: fixed;
-
-            width: 5px;
-            height: 5px;
-
-            background: #00ffff;
-
-            border-radius: 50%;
-
-            box-shadow:
-                0 0 10px #00ffff,
-                0 0 20px #00ffff;
-
-            pointer-events: none;
-
-            animation: particleMove linear forwards;
-        }
-
-        @keyframes particleMove {
-
-            from {
-                transform:
-                    translate(0, 0)
-                    scale(1);
-
-                opacity: 1;
-            }
-
-            to {
-                transform:
-                    translate(var(--x), var(--y))
-                    scale(0);
-
                 opacity: 0;
             }
         }
 
+        @keyframes chaos {
+            from {
+                transform: rotate(-2deg) scale(1);
+            }
+
+            to {
+                transform: rotate(2deg) scale(1.08);
+            }
+        }
+
+        hr {
+            border: 0;
+            border-top: 5px dashed #ff00ff;
+        }
+
+        a {
+            color: #00ffff;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="top">
+        ★★★ WITAM NA STRONIE 2137 ★★★
+    </div>
 
-        <!-- NORMALNE ODLICZANIE -->
+    <marquee
+        scrollamount="12"
+        behavior="alternate"
+        style="
+            background:#ffff00;
+            color:#ff0000;
+            font-size:25px;
+            font-weight:bold;
+            padding:5px;
+        "
+    >
+        !!! UWAGA !!! ODLICZANIE DO 21:37 !!! UWAGA !!!
+    </marquee>
+
+
+    <div class="main">
+
+        <div class="warning">
+            *** NAJLEPSZA STRONA W INTERNECIE 2008 ***
+        </div>
+
+        <hr>
 
         <div id="normal">
+
+            <div id="label">
+                DO GODZINY 21:37 ZOSTAŁO:
+            </div>
 
             <div id="countdown">
                 ŁADOWANIE...
             </div>
 
-            <div id="label">
-                POZOSTAŁO DO 21:37
-            </div>
-
         </div>
 
-
-        <!-- EKRAN 21:37 -->
 
         <div id="celebration">
 
             <h1>
-                MAMY 2137<br>
-                PROSZĘ PAŃSTWA
+                !!! MAMY 2137 !!!
             </h1>
 
-            <p>
-                BYŁ PAPIEŻ I NIE MA PAPIEŻA HEHE
+            <p class="blink">
+                PROSZĘ PAŃSTWA!!!
             </p>
+
+            <p>
+                ★★★ GODZINA 21:37 ★★★
+            </p>
+
+        </div>
+
+
+        <div class="box">
+
+            <b>☠ INFORMACJA ☠</b>
+
+            <br><br>
+
+            Ten licznik pokazuje czas do godziny 21:37.
+
+            <br><br>
+
+            Strona wykonana w technologii:
+            <br>
+
+            <font color="red">HTML</font> +
+            <font color="lime">CSS</font> +
+            <font color="cyan">JAVASCRIPT</font>
+
+            <br><br>
+
+            <span class="blink">
+                ★ NIE ODŚWIEŻAJ STRONY O 21:37 ★
+            </span>
+
+        </div>
+
+
+        <div class="footer">
+
+            OSTATNIA AKTUALIZACJA:
+            06.09.2008
+
+            <br><br>
+
+            Licznik działa dzięki JavaScript™
+
+            <br><br>
+
+            <font color="white">
+                © 2008 2137 Corporation
+            </font>
 
         </div>
 
@@ -286,73 +256,21 @@
 
     <script>
 
-        const countdown =
+        var countdown =
             document.getElementById("countdown");
 
-        const normal =
+        var normal =
             document.getElementById("normal");
 
-        const celebration =
+        var celebration =
             document.getElementById("celebration");
 
 
-        let celebrationActive = false;
+        function update() {
 
+            var now = new Date();
 
-        /*
-         * Tworzenie neonowych cząsteczek
-         */
-
-        function createParticle() {
-
-            const particle =
-                document.createElement("div");
-
-            particle.classList.add("particle");
-
-            particle.style.left =
-                Math.random() * 100 + "vw";
-
-            particle.style.top =
-                Math.random() * 100 + "vh";
-
-            const x =
-                (Math.random() - 0.5) * 500;
-
-            const y =
-                (Math.random() - 0.5) * 500;
-
-            particle.style.setProperty(
-                "--x",
-                x + "px"
-            );
-
-            particle.style.setProperty(
-                "--y",
-                y + "px"
-            );
-
-            particle.style.animationDuration =
-                (1 + Math.random() * 2) + "s";
-
-            document.body.appendChild(particle);
-
-
-            setTimeout(() => {
-                particle.remove();
-            }, 3000);
-        }
-
-
-        /*
-         * Obliczanie czasu do następnego 21:37
-         */
-
-        function updateClock() {
-
-            const now = new Date();
-
-            const target = new Date(now);
+            var target = new Date();
 
             target.setHours(21);
             target.setMinutes(37);
@@ -361,162 +279,106 @@
 
 
             /*
-             * Jeżeli dzisiejsze 21:37 już minęło,
-             * ustawiamy cel na jutro.
-             */
-
-            if (now >= target) {
-
-                /*
-                 * Ale jeżeli jesteśmy aktualnie
-                 * w minucie 21:37, nie przenosimy celu.
-                 */
-
-                if (
-                    now.getHours() !== 21 ||
-                    now.getMinutes() !== 37
-                ) {
-                    target.setDate(
-                        target.getDate() + 1
-                    );
-                }
-            }
-
-
-            /*
-             * SPRAWDZENIE CZY JEST 21:37
+             * SPRAWDZAMY CZY JEST 21:37
              */
 
             if (
-                now.getHours() === 21 &&
-                now.getMinutes() === 37
+                now.getHours() == 21 &&
+                now.getMinutes() == 37
             ) {
 
-                showCelebration();
+                normal.style.display = "none";
+                celebration.style.display = "block";
+
+                document.body.style.background =
+                    "#ff0000";
 
                 return;
             }
 
 
             /*
-             * Powrót do normalnego trybu
+             * JEŚLI 21:37 JUŻ BYŁO,
+             * CZEKAMY DO JUTRA
              */
 
-            hideCelebration();
+            if (now >= target) {
+
+                target.setDate(
+                    target.getDate() + 1
+                );
+            }
 
 
-            const difference =
-                target.getTime() - now.getTime();
+            var difference =
+                target - now;
 
 
-            let totalSeconds =
-                Math.floor(difference / 1000);
+            var totalSeconds =
+                Math.floor(
+                    difference / 1000
+                );
 
 
-            const days =
+            var days =
                 Math.floor(
                     totalSeconds / 86400
                 );
 
-            totalSeconds %= 86400;
+            totalSeconds =
+                totalSeconds % 86400;
 
 
-            const hours =
+            var hours =
                 Math.floor(
                     totalSeconds / 3600
                 );
 
-            totalSeconds %= 3600;
+            totalSeconds =
+                totalSeconds % 3600;
 
 
-            const minutes =
+            var minutes =
                 Math.floor(
                     totalSeconds / 60
                 );
 
-            const seconds =
+            var seconds =
                 totalSeconds % 60;
 
 
-            countdown.textContent =
-                `${days}d ` +
-                `${String(hours).padStart(2, "0")}:` +
-                `${String(minutes).padStart(2, "0")}:` +
-                `${String(seconds).padStart(2, "0")}`;
-        }
-
-
-        /*
-         * Pokazanie trybu 21:37
-         */
-
-        function showCelebration() {
-
-            if (!celebrationActive) {
-
-                celebrationActive = true;
-
-                normal.style.display = "none";
-
-                celebration.style.display =
-                    "block";
-
-                document.body.classList.add(
-                    "celebration-mode"
-                );
-            }
-
-
             /*
-             * Cząsteczki pojawiają się cały czas
+             * DODAJEMY ZERA
              */
 
-            for (let i = 0; i < 3; i++) {
-                createParticle();
-            }
+            if (hours < 10)
+                hours = "0" + hours;
+
+            if (minutes < 10)
+                minutes = "0" + minutes;
+
+            if (seconds < 10)
+                seconds = "0" + seconds;
+
+
+            countdown.innerHTML =
+                days + "d " +
+                hours + ":" +
+                minutes + ":" +
+                seconds;
         }
 
 
-        /*
-         * Powrót do licznika
-         */
+        update();
 
-        function hideCelebration() {
-
-            if (celebrationActive) {
-
-                celebrationActive = false;
-
-                celebration.style.display =
-                    "none";
-
-                normal.style.display =
-                    "block";
-
-                document.body.classList.remove(
-                    "celebration-mode"
-                );
-            }
-        }
-
-
-        /*
-         * Uruchomienie
-         */
-
-        updateClock();
-
-
-        /*
-         * Aktualizacja kilka razy na sekundę,
-         * żeby przejście było płynne.
-         */
-
-        setInterval(updateClock, 100);
-
+        setInterval(
+            update,
+            100
+        );
 
     </script>
 
 </body>
+
 </html>
 ```
