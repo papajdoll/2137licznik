@@ -1,12 +1,15 @@
-```html
+
 <!DOCTYPE html>
 <html lang="pl">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>!!! 2137 LICZNIK !!!</title>
 
     <style>
+
         body {
             margin: 0;
             background: #000080;
@@ -18,45 +21,81 @@
         .top {
             background: linear-gradient(#ff0000, #800000);
             border: 5px outset #ffff00;
-            padding: 10px;
+            padding: 12px;
+
             color: yellow;
             font-size: 42px;
             font-weight: bold;
+
             text-shadow: 4px 4px #000000;
         }
 
         .main {
             width: 850px;
-            max-width: 95%;
+            max-width: 92%;
+
             margin: 30px auto;
+
             background: #000000;
+
             border: 8px ridge #00ffff;
+
             padding: 20px;
+
+            box-shadow:
+                0 0 25px #00ffff,
+                0 0 50px #ff00ff;
         }
 
         .warning {
             color: #ff00ff;
-            font-size: 24px;
+
+            font-size: 26px;
             font-weight: bold;
+
+            text-shadow:
+                0 0 10px #ff00ff,
+                0 0 20px #ff00ff;
+        }
+
+        hr {
+            border: 0;
+            border-top: 5px dashed #ff00ff;
+            margin: 20px 0;
+        }
+
+        #label {
+            color: #ffff00;
+
+            font-size: 30px;
+            font-weight: bold;
+
+            text-shadow:
+                0 0 10px #ffff00;
         }
 
         #countdown {
+
             margin: 30px 0;
+
             padding: 25px;
 
-            background: linear-gradient(
-                135deg,
-                #000000,
-                #0000ff,
-                #000000
-            );
+            background:
+                linear-gradient(
+                    135deg,
+                    #000000,
+                    #0000ff,
+                    #000000
+                );
 
             border: 10px groove #ffff00;
 
             color: #ffffff;
 
             font-family: "Courier New", monospace;
+
             font-size: 75px;
+
             font-weight: bold;
 
             text-shadow:
@@ -68,145 +107,266 @@
                 inset 0 0 20px #ff00ff;
         }
 
-        #label {
-            color: #ffff00;
-            font-size: 30px;
-            font-weight: bold;
-        }
+
+        /* ==========================
+           TRYB 21:37
+           ========================== */
 
         #celebration {
             display: none;
         }
 
         #celebration h1 {
+
             color: #ffff00;
+
             font-size: 70px;
+
             text-shadow:
                 5px 5px #ff0000,
                 -5px -5px #0000ff;
 
-            animation: chaos 0.3s infinite alternate;
+            animation:
+                chaos 0.3s infinite alternate;
         }
 
         #celebration p {
+
             color: #00ffff;
-            font-size: 35px;
+
+            font-size: 38px;
+
             font-weight: bold;
+
+            text-shadow:
+                0 0 10px #00ffff,
+                0 0 30px #00ffff;
         }
 
+
+        /* ==========================
+           INFORMACJA
+           ========================== */
+
         .box {
+
             margin-top: 30px;
-            padding: 15px;
+
+            padding: 20px;
 
             background: #222222;
 
             border: 5px outset #ffffff;
 
             color: #ffffff;
+
             font-size: 20px;
         }
 
+
         .footer {
+
             margin-top: 30px;
 
             background: #800080;
+
             border: 4px inset #ffff00;
 
-            padding: 10px;
+            padding: 12px;
 
             color: #ffff00;
+
             font-size: 18px;
         }
 
+
+        /* ==========================
+           MIGANIE
+           ========================== */
+
         .blink {
-            animation: blink 0.5s infinite;
+
+            animation:
+                blink 0.5s infinite;
         }
 
         @keyframes blink {
+
             50% {
                 opacity: 0;
             }
         }
 
+
+        /* ==========================
+           CHAOS 21:37
+           ========================== */
+
         @keyframes chaos {
+
             from {
-                transform: rotate(-2deg) scale(1);
+                transform:
+                    rotate(-2deg)
+                    scale(1);
             }
 
             to {
-                transform: rotate(2deg) scale(1.08);
+                transform:
+                    rotate(2deg)
+                    scale(1.08);
             }
         }
 
-        hr {
-            border: 0;
-            border-top: 5px dashed #ff00ff;
+
+        /* ==========================
+           EFEKT TŁA
+           ========================== */
+
+        body.party {
+
+            background:
+                radial-gradient(
+                    circle,
+                    #ff0000,
+                    #000080,
+                    #000000
+                );
+
+            animation:
+                backgroundChaos 1s infinite alternate;
         }
 
-        a {
-            color: #00ffff;
+        @keyframes backgroundChaos {
+
+            from {
+                filter: brightness(0.8);
+            }
+
+            to {
+                filter: brightness(1.5);
+            }
         }
+
+
+        /* ==========================
+           RESPONSIVE
+           ========================== */
+
+        @media (max-width: 700px) {
+
+            .top {
+                font-size: 28px;
+            }
+
+            #countdown {
+                font-size: 40px;
+                padding: 15px;
+            }
+
+            #label {
+                font-size: 22px;
+            }
+
+            #celebration h1 {
+                font-size: 45px;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
     <div class="top">
+
         ★★★ WITAM NA STRONIE 2137 ★★★
+
     </div>
+
 
     <marquee
         scrollamount="12"
         behavior="alternate"
+
         style="
             background:#ffff00;
             color:#ff0000;
             font-size:25px;
             font-weight:bold;
-            padding:5px;
+            padding:6px;
         "
     >
+
         !!! UWAGA !!! ODLICZANIE DO 21:37 !!! UWAGA !!!
+
     </marquee>
 
 
     <div class="main">
 
+
         <div class="warning">
-            *** NAJLEPSZA STRONA W INTERNECIE 2008 ***
+
+            *** OFICJALNY LICZNIK 21:37 ***
+
         </div>
 
+
         <hr>
+
+
+        <!-- NORMALNY LICZNIK -->
 
         <div id="normal">
 
             <div id="label">
+
                 DO GODZINY 21:37 ZOSTAŁO:
+
             </div>
 
+
             <div id="countdown">
+
                 ŁADOWANIE...
+
             </div>
 
         </div>
 
+
+        <!-- EKRAN 21:37 -->
 
         <div id="celebration">
 
             <h1>
+
                 !!! MAMY 2137 !!!
+
             </h1>
 
+
             <p class="blink">
+
                 PROSZĘ PAŃSTWA!!!
+
             </p>
 
+
             <p>
+
                 ★★★ GODZINA 21:37 ★★★
+
             </p>
 
         </div>
 
+
+        <!-- INFORMACJE -->
 
         <div class="box">
 
@@ -214,67 +374,98 @@
 
             <br><br>
 
-            Ten licznik pokazuje czas do godziny 21:37.
+            Ten licznik pokazuje czas
+            pozostały do godziny 21:37.
 
             <br><br>
 
-            Strona wykonana w technologii:
-            <br>
-
-            <font color="red">HTML</font> +
-            <font color="lime">CSS</font> +
-            <font color="cyan">JAVASCRIPT</font>
+            <font color="red">
+                HTML
+            </font>
+            +
+            <font color="lime">
+                CSS
+            </font>
+            +
+            <font color="cyan">
+                JAVASCRIPT
+            </font>
 
             <br><br>
 
             <span class="blink">
-                ★ NIE ODŚWIEŻAJ STRONY O 21:37 ★
+
+                ★ NIE PRZEGAP 21:37 ★
+
             </span>
 
         </div>
 
 
+        <!-- STOPKA -->
+
         <div class="footer">
 
-            OSTATNIA AKTUALIZACJA:
-            06.09.2008
+            ★★★ LICZNIK 21:37 ★★★
 
             <br><br>
 
-            Licznik działa dzięki JavaScript™
+            Strona działa automatycznie.
 
             <br><br>
 
             <font color="white">
-                © 2008 2137 Corporation
+
+                © 2137
+
             </font>
 
         </div>
+
 
     </div>
 
 
     <script>
 
+
         var countdown =
             document.getElementById("countdown");
 
+
         var normal =
             document.getElementById("normal");
+
 
         var celebration =
             document.getElementById("celebration");
 
 
-        function update() {
+        var party =
+            false;
 
-            var now = new Date();
 
-            var target = new Date();
+        function updateClock() {
+
+
+            var now =
+                new Date();
+
+
+            var target =
+                new Date();
+
+
+            /*
+             * USTAWIAMY CEL NA 21:37
+             */
 
             target.setHours(21);
+
             target.setMinutes(37);
+
             target.setSeconds(0);
+
             target.setMilliseconds(0);
 
 
@@ -287,19 +478,16 @@
                 now.getMinutes() == 37
             ) {
 
-                normal.style.display = "none";
-                celebration.style.display = "block";
-
-                document.body.style.background =
-                    "#ff0000";
+                show2137();
 
                 return;
+
             }
 
 
             /*
-             * JEŚLI 21:37 JUŻ BYŁO,
-             * CZEKAMY DO JUTRA
+             * JEŚLI DZISIEJSZE 21:37
+             * JUŻ MINĘŁO, CZEKAMY DO JUTRA
              */
 
             if (now >= target) {
@@ -307,8 +495,13 @@
                 target.setDate(
                     target.getDate() + 1
                 );
+
             }
 
+
+            /*
+             * RÓŻNICA CZASU
+             */
 
             var difference =
                 target - now;
@@ -320,63 +513,162 @@
                 );
 
 
+            /*
+             * DNI
+             */
+
             var days =
                 Math.floor(
                     totalSeconds / 86400
                 );
 
+
             totalSeconds =
                 totalSeconds % 86400;
 
+
+            /*
+             * GODZINY
+             */
 
             var hours =
                 Math.floor(
                     totalSeconds / 3600
                 );
 
+
             totalSeconds =
                 totalSeconds % 3600;
 
+
+            /*
+             * MINUTY
+             */
 
             var minutes =
                 Math.floor(
                     totalSeconds / 60
                 );
 
+
+            /*
+             * SEKUNDY
+             */
+
             var seconds =
                 totalSeconds % 60;
 
 
             /*
-             * DODAJEMY ZERA
+             * ZERA
              */
 
             if (hours < 10)
                 hours = "0" + hours;
 
+
             if (minutes < 10)
                 minutes = "0" + minutes;
+
 
             if (seconds < 10)
                 seconds = "0" + seconds;
 
 
+            /*
+             * WYŚWIETLAMY
+             */
+
             countdown.innerHTML =
+
                 days + "d " +
                 hours + ":" +
                 minutes + ":" +
                 seconds;
+
+
+            hide2137();
+
         }
 
 
-        update();
+        /*
+         * TRYB 21:37
+         */
+
+        function show2137() {
+
+
+            if (!party) {
+
+                party = true;
+
+
+                normal.style.display =
+                    "none";
+
+
+                celebration.style.display =
+                    "block";
+
+
+                document.body.classList.add(
+                    "party"
+                );
+
+            }
+
+        }
+
+
+        /*
+         * POWRÓT DO ODLICZANIA
+         */
+
+        function hide2137() {
+
+
+            if (party) {
+
+                party = false;
+
+
+                normal.style.display =
+                    "block";
+
+
+                celebration.style.display =
+                    "none";
+
+
+                document.body.classList.remove(
+                    "party"
+                );
+
+            }
+
+        }
+
+
+        /*
+         * START
+         */
+
+        updateClock();
+
+
+        /*
+         * Aktualizacja co 100 ms.
+         */
 
         setInterval(
-            update,
+            updateClock,
             100
         );
 
+
     </script>
+
 
 </body>
 
